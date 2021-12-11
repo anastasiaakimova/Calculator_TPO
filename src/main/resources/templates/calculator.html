@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+
+    <title>Calculator</title>
+    <link rel="stylesheet" type="text/css" th:href="@{../static/css/main.css}" href="../static/css/main.css"
+          media="all"/>
+</head>
+<body>
+
+<form action="#" th:action="@{/calculator}" th:object="${operationModel}" method="POST">
+
+    <div class="calculator-grid">
+        <div class="output">
+            <div data-previous-operand class="first-operand">
+                <input type="text" th:field="*{a}"/>
+            </div>
+            <div data-current-operand class="second-operand">
+                <input type="text" th:field="*{b}"/>
+            </div>
+        </div>
+        <input type="submit" class="button" name="add" value="+"/>
+        <input type="submit" class="button" name="subtract" value="-"/>
+        <input type="submit" class="button" name="multiply" value="*"/>
+        <input type="submit" class="button" name="divide" value="/"/>
+        <input type="submit" class="button" name="cos" value="cos"/>
+        <input type="submit" class="button" name="sin" value="sin"/>
+        <input type="submit" class="button" name="tg" value="tg"/>
+        <input type="submit" class="button" name="ctg" value="ctg"/>
+        <input type="submit" class="button" name="sqrt" value=&#8730/>
+        <input type="submit" class="button" name="power" value="^"/>
+        <input type="submit" class="button" name="isPositive" value=">0"/>
+        <input type="submit" class="button" name="isNegative" value="<0"/>
+        <input type="submit" class="button data-all-clear doubled-grid" name="clearSimple" value="AC"/>
+        <result class="button doubled-grid" name="result" th:text="'result: ' + ${result}"/>
+
+    </div>
+</form>
+</body>
+</html>
